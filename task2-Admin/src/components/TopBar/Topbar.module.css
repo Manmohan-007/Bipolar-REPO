@@ -1,0 +1,87 @@
+.TopbarWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box; 
+    max-width: 1140px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px; 
+    height: 95px;
+
+}
+.headinglink{
+    text-decoration: none; 
+    transition: color .2s; 
+    color: #fff;
+}
+.MainTopbar svg{
+    font-weight: 900; 
+    font-size: 1.8em;
+    margin-bottom: 4px;
+   
+}
+
+.RightSideMenuItems div:hover {
+    color: #f5a623;
+}
+ 
+
+
+.ProductLogo{
+    text-transform: uppercase;
+    margin: 0;
+    color: #fff;
+    font-size: 1.5em;
+
+} 
+.RightSideMenuItems{
+   display: block;
+} 
+
+.RightSideMenuItems div {
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+    padding: 20px;
+
+} 
+.RightLink{
+
+} 
+.RightSideMenuItems div p {
+    margin : 0  ; 
+} 
+.products{
+    margin-left: 20px;
+} 
+.accounts{
+    margin-left: 20px;   
+} 
+a{
+    text-decoration: none; 
+    color: white;
+} 
+.MainTopbar{
+    background-color: #567086;
+    height: 95px;
+} 
+
+
+.Coloring > div {
+  
+
+} 
+.RightLink >div {
+    color:white;
+    background-color: #f5a623;
+
+
+
+}   
+.logout:hover{
+    color: #f5a623;
+} 
+.logout{
+    color: white;
+}
