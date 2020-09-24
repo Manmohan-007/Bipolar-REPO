@@ -10,7 +10,25 @@ import AddProductPage from "./container/Products/addProductPage/add";
 import DashBoard from "./container/DashBoardPage/DashBoard";
 import Registration from "./container/RegistrationPage/Registration";
 class App extends Component {
+  state = {
+    userVal: "", UserName: ""
+  };
+
+
+
+
+
+
+
+  handlerouting = (pos) => {
+    this.setState({
+      userVal: pos,
+    });
+  };
+
   render() {
+
+    const userName = JSON.parse(localStorage.getItem("UserData")).UserName;
     console.log(this.props);
     return (
       <BrowserRouter>
@@ -24,8 +42,8 @@ class App extends Component {
                 this.props.UserStatus ? (
                   <Redirect to="/dashboard" />
                 ) : (
-                  <Registration {...props} />
-                )
+                    <Registration {...props} />
+                  )
               }
             />
             <Route
@@ -35,8 +53,8 @@ class App extends Component {
                 this.props.UserStatus ? (
                   <Redirect to="/dashboard" />
                 ) : (
-                  <Redirect to="/login" />
-                )
+                    <Redirect to="/login" />
+                  )
               }
             />
             <Route
@@ -46,8 +64,8 @@ class App extends Component {
                 !this.props.UserStatus ? (
                   <LoginPageLanding {...props} />
                 ) : (
-                  <Redirect to="/dashboard" />
-                )
+                    <Redirect to="/dashboard" />
+                  )
               }
             />
             <Route
@@ -55,10 +73,10 @@ class App extends Component {
               path="/dashboard"
               render={(props) =>
                 this.props.UserStatus ? (
-                  <DashBoard {...props} />
+                  <DashBoard {...props} position={this.handlerouting} />
                 ) : (
-                  <Redirect to="/login" />
-                )
+                    <Redirect to="/login" />
+                  )
               }
             />
             <Route
@@ -68,8 +86,8 @@ class App extends Component {
                 this.props.UserStatus ? (
                   <Products {...props} />
                 ) : (
-                  <Redirect to="/login" />
-                )
+                    <Redirect to="/login" />
+                  )
               }
             />
             <Route
@@ -79,19 +97,19 @@ class App extends Component {
                 this.props.UserStatus ? (
                   <Account {...props} />
                 ) : (
-                  <Redirect to="/login" />
-                )
+                    <Redirect to="/login" />
+                  )
               }
             />
             <Route
               exact
               path="/Products/add"
               render={(props) =>
-                this.props.UserStatus ? (
-                  <AddProductPage {...props} />
+                this.props.UserStatus == true && userName == "Manmohan" ? (
+                  <AddProductPage {...props} propy={this.state.userVal} />
                 ) : (
-                  <Redirect to="/login" />
-                )
+                    <Redirect to="/login" />
+                  )
               }
             />
           </Switch>

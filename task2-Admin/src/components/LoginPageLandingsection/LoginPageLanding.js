@@ -39,10 +39,11 @@ class LoginPageLanding extends Component {
       .get("https://5ee90a15ca595700160298cc.mockapi.io/BackEnd")
       .then((response) => {
         this.checker(response.data);
+        this.handleLocalStorage();
         if (this.checker(response.data)) {
           this.props.UserLoggedIn();
           this.handleBackEndData();
-          this.handleLocalStorage();
+
           this.props.history.push("/dashboard");
 
           alert("Login Successful");

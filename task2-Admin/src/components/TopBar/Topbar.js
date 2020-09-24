@@ -6,6 +6,7 @@ import "./Topbar.css";
 class Topbar extends Component {
   state = {
     showUserName: true,
+    UserName: JSON.parse(localStorage.getItem("UserData")).UserName,
   };
 
   DashBoard = React.createRef();
@@ -23,7 +24,9 @@ class Topbar extends Component {
     }
   };
 
+
   render() {
+    const userNew = JSON.parse(localStorage.getItem("UserData")).UserName
     return (
       <div className={classes.MainTopbar}>
         <div className={classes.TopbarWrapper}>
@@ -76,8 +79,7 @@ class Topbar extends Component {
                 to="/login"
               >
                 <div>
-                  {JSON.parse(localStorage.getItem("UserData")).UserName},{" "}
-                  <span> Logout</span>
+                  {userNew}, <span> Logout</span>
                 </div>
               </NavLink>
             ) : null}
